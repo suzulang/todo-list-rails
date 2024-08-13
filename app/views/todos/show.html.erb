@@ -1,0 +1,16 @@
+<h1 class="mb-4">待办事项详情</h1>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @todo.title %></h5>
+    <p class="card-text"><strong>状态：</strong> <%= @todo.completed ? '已完成' : '未完成' %></p>
+    <p class="card-text"><strong>创建时间：</strong> <%= @todo.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    <p class="card-text"><strong>最后更新：</strong> <%= @todo.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+  </div>
+</div>
+
+<div class="mt-3">
+  <%= link_to '编辑', edit_todo_path(@todo), class: 'btn btn-warning' %>
+  <%= link_to '返回列表', todos_path, class: 'btn btn-secondary' %>
+  <%= button_to '删除', @todo, method: :delete, data: { confirm: '确定要删除这个待办事项吗？' }, class: 'btn btn-danger' %>
+</div>
